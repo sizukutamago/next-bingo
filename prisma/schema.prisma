@@ -1,0 +1,28 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Room {
+  id          String        @id @default(cuid())
+  name        String
+  createAt    DateTime      @default(now())
+  Participant Participant[]
+}
+
+model Participant {
+  id     String @id @default(cuid())
+  name   String
+  roomId String
+  Room   Room   @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  @@index([roomId])
+}
