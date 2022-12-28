@@ -1,0 +1,14 @@
+table {
+  min-width: 90vw;
+  max-width: 90vw;
+  max-height: 60vh;
+  min-height: 60vh;
+}
+
+table,
+table td {
+  text-align: center;
+  padding: 3rem;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
