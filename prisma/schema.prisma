@@ -13,7 +13,8 @@ datasource db {
 
 model Room {
   id          String        @id @default(cuid())
-  name        String
+  name        String        @db.Text
+  hash        String        @db.Text
   createAt    DateTime      @default(now())
   Participant Participant[]
 }

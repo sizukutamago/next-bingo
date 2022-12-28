@@ -46,7 +46,6 @@ const Top: NextPage = () => {
     }
 
     const room = (await response.json()) as Room;
-
     router.replace(`/room/${room.id}`);
   };
 
